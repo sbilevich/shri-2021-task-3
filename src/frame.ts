@@ -32,7 +32,7 @@ function onDocumentClick(e: MouseEvent) {
         }
 
             const { action, params } = target.dataset;
-            sendMessage(messageAction(action, params));
+            sendMessage(messageAction(action, decodeURIComponent(params)));
     }
 }
 
