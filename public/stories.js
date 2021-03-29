@@ -72,15 +72,15 @@ function activity(data) {
                     </div>
                     <div class="activity__measures-item">
                         <div class="activity__measures-color activity__measures-gray"></div>
-                        <div class="activity__measures-measure">1 - 2</div>
+                        <div class="activity__measures-measure">1 — 2</div>
                     </div>
                     <div class="activity__measures-item">
                         <div class="activity__measures-color activity__measures-lightorange"></div>
-                        <div class="activity__measures-measure">3 - 4</div>
+                        <div class="activity__measures-measure">3 — 4</div>
                     </div>
                     <div class="activity__measures-item">
                         <div class="activity__measures-color activity__measures-orange"></div>
-                        <div class="activity__measures-measure">5 - 6</div>
+                        <div class="activity__measures-measure">5 — 6</div>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@ function chart(data) {
         <div class="chart__item ${value.active ? 'chart__item-max' : ''}">
             <div class="chart__item-wrapper">
                 <div class="chart__item-columnwrapper">
-                    <div class="chart__item-number">${value.value}</div>
+                    <div class="chart__item-number">${value.value > 0 ? value.value : ''}</div>
                     <div class="chart__item-column" style="height: ${itemHeight}%"></div>
                 </div> 
             </div>
@@ -284,7 +284,8 @@ const initDiagram = (chartId, categories, isLight = false) => {
 
     pie.dataFields.value = 'value';
     pie.dataFields.category = 'name';
-    pie.innerRadius = am4core.percent(70);
+    pie.radius = am4core.percent(110);
+    pie.innerRadius = am4core.percent(77);
 
     pie.ticks.template.disabled = true;
     pie.labels.template.disabled = true;
@@ -411,7 +412,7 @@ function vote(data) {
 
         const isDisabled = nextOffset >= users.length || (offset == 0 && direction == 'up')
         if (isDisabled) {
-            className += ' vote__arrow-disabled'
+            className += ' vote__arrow-disabled';
         } else {
             const dataParams = {
                 alias: 'vote',
